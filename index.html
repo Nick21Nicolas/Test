@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cachaçaria Amo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_eZ1HUyhn3AWrCNbdHZZetedVOhNI09QFrw&s">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #000000;
+            background-color: #333;
+            background-image: url('https://c4.wallpaperflare.com/https://i.sstatic.net/JxR07.png/633/1013/247/elvis-presley-wallpaper-thumb.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        header {
+            background: rgba(34, 34, 34, 0.8);
+            color: #f0f0f0;
+            padding: 1rem 0;
+            text-align: center;
+            animation: slideInDown 0.5s ease-out;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 15px;
+        }
+
+        nav ul li a {
+            color: #f0f0f0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #0066cc;
+        }
+
+        section {
+            padding: 40px 0;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        section:nth-of-type(1) {
+            animation-delay: 0.3s;
+        }
+
+        section:nth-of-type(2) {
+            animation-delay: 0.6s;
+        }
+
+        section:nth-of-type(3) {
+            animation-delay: 0.9s;
+        }
+
+        h2 {
+            color: #fff;
+            border-bottom: 3px solid #0066cc;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .product {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .product img {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            border-radius: 8px;
+        }
+
+        .price {
+            color: #003366;
+            font-size: 1.3em;
+            margin: 15px 0;
+        }
+
+        .quantity {
+            margin-top: 15px;
+        }
+
+        .quantity-btn {
+            background-color: #0066cc;
+            border: none;
+            color: #fff;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1.2em;
+            margin: 0 5px;
+            transition: background-color 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background-color: #004d99;
+        }
+
+        .quantity-input {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            width: 60px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .checkout {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .checkout button {
+            background-color: #003366;
+            border: none;
+            color: #fff;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .checkout button:hover {
+            background-color: #002244;
+        }
+
+        footer {
+            background: #111; 
+            color: #ddd;
+            text-align: center;
+            padding: 0.5rem 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+            animation: slideInUp 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cachaçaria AMO</h1>
+        <nav>
+            <ul>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#biografia">Biografia</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="produtos">
+        <h2>Nossos Produtos</h2>
+        <div class="product" id="product1" data-price="14.00">
+            <img src="https://cdn.shoppub.io/cdn-cgi/image/w=600,h=600,q=80,f=auto/pereirao/media/uploads/produtos/foto/b76fcec30261cfile.png" alt="Salgadinho Tofitos">
+            <h3>Salgadinho Tofitos Cebola e Salça C/10 Unidades (45g)</h3>
+            <p>Salgadinho Tofitos Sabor Cebola e Salça e muito crocantes.</p>
+            <p class="price">R$ 14,00</p>
+            <div class="quantity">
+                <button class="quantity-btn" onclick="updateQuantity('product1', -1)">-</button>
+                <input type="text" id="quantity-product1" class="quantity-input" value="0" readonly>
+                <button class="quantity-btn" onclick="updateQuantity('product1', 1)">+</button>
+            </div>
+        </div>
+
+        <div class="product" id="product2" data-price="14.00">
+            <img src="https://d246rzh6rlbt6w.cloudfront.net/img.produtos/7898299931357/689/img_1200_1.png" alt="Salgadinho Tofitos">
+            <h3>Salgadinho Tofitos Sabor Bacon C/10 Unidades (45g)</h3>
+            <p>Salgadinho Tofitos Sabor Bacon e muito crocantes.</p>
+            <p class="price">R$ 14,00</p>
+            <div class="quantity">
+                <button class="quantity-btn" onclick="updateQuantity('product2', -1)">-</button>
+                <input type="text" id="quantity-product2" class="quantity-input" value="0" readonly>
+                <button class="quantity-btn" onclick="updateQuantity('product2', 1)">+</button>
+            </div>
+        </div>
+
+        <div class="product" id="product3" data-price="18.00">
+            <img src="https://www.saodomingosalimentos.com.br/v2/wp-content/uploads/2020/03/Diversos_Tofitos2.jpg" alt="Salgadinho Tofitos">
+            <h3>Salgadinho Tofitos Sabor Bacon C/10 Unidades (70g)</h3>
+            <p>Salgadinho Tofitos Sabor Bacon e muito crocantes.</p>
+            <p class="price">R$ 18,00</p>
+            <div class="quantity">
+                <button class="quantity-btn" onclick="updateQuantity('product3', -1)">-</button>
+                <input type="text" id="quantity-product3" class="quantity-input" value="0" readonly>
+                <button class="quantity-btn" onclick="updateQuantity('product3', 1)">+</button>
+            </div>
+        </div>
+
+        <div class="product" id="product4" data-price="27.00">
+            <img src="https://img.sitemercado.com.br/produtos/ec6cd0e5f3e08caa8a098ad08a000947183752e7e2ec85d0e4f8cda9f06546c9_full.jpg" alt="Salgadinho Tofitos">
+            <h3>Salgadinho Tofitos Sabor Bacon C/10 Unidades (90g)</h3>
+            <p>Salgadinho Tofitos Sabor Bacon e muito crocantes.</p>
+            <p class="price">R$ 27,00</p>
+            <div class="quantity">
+                <button class="quantity-btn" onclick="updateQuantity('product4', -1)">-</button>
+                <input type="text" id="quantity-product4" class="quantity-input" value="0" readonly>
+                <button class="quantity-btn" onclick="updateQuantity('product4', 1)">+</button>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="checkout">
+        <h2 id="total-price">Total: R$ 0,00</h2>
+        <button onclick="finalizePurchase()">Finalizar Compra</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Cachaçaria AMO. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        function updateQuantity(productId, change) {
+            const input = document.querySelector(`#quantity-${productId}`);
+            const quantity = parseInt(input.value) || 0;
+            const newQuantity = Math.max(0, quantity + change);
+            input.value = newQuantity;
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const products = document.querySelectorAll('.product');
+            let total = 0;
+            let message = 'Pedido:\n';
+
+            products.forEach(product => {
+                const price = parseFloat(product.getAttribute('data-price'));
+                const quantity = parseInt(document.querySelector(`#quantity-${product.id}`).value) || 0;
+                if (quantity > 0) {
+                    const productName = product.querySelector('h3').textContent;
+                    const productTotal = (price * quantity).toFixed(2);
+                    total += price * quantity;
+                    message += `${productName} - Quantidade: ${quantity} - Preço Unitário: R$ ${price.toFixed(2)} - Total: R$ ${productTotal}\n`;
+                }
+            });
+
+            message += `Total Geral: R$ ${total.toFixed(2)}`;
+
+            const encodedMessage = encodeURIComponent(message);
+            const phoneNumber = '+5516996378308'; 
+            const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+            document.querySelector('#total-price').textContent = `Total: R$ ${total.toFixed(2)}`;
+
+            return whatsappURL;
+        }
+
+        function finalizePurchase() {
+            const whatsappURL = updateTotal();
+            if (whatsappURL) {
+                window.open(whatsappURL, '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
